@@ -1,0 +1,25 @@
+INSERT INTO case_studies VALUES
+('A', 'Financial Institution', 'On-Prem PostgreSQL (Streaming Replication)', 'Azure Database for PostgreSQL', 'PostgreSQL',
+ 'Failover delays due to DNS and network issues; quorum failure in region disruptions',
+ 'Zone-redundant HA, 99.99% uptime, RTO < 60s, 70% workload reduction');
+
+INSERT INTO case_studies VALUES
+('B', 'Healthcare Provider', 'On-Prem Oracle (SAN)', 'Amazon RDS for Oracle', 'Oracle',
+ 'SAN failures, inconsistent backups, regulatory challenges',
+ 'Multi-AZ, cross-region backup, 35% cost savings, point-in-time recovery');
+
+INSERT INTO case_studies VALUES
+('C', 'E-Commerce Startup', 'Hybrid MySQL (On-Prem + GCP)', 'Google Cloud SQL', 'MySQL',
+ 'Manual failovers, limited DR readiness, scalability bottlenecks',
+ '85% downtime reduction, proactive DR tests, seasonal replica scaling');
+
+-- Insert into ha_dr_metrics
+INSERT INTO ha_dr_metrics 
+(case_id, uptime_percent_before, uptime_percent_after, rto_minutes_before, rto_seconds_after, operational_effort_reduction_percent, cost_savings_percent, downtime_reduction_percent, dr_testing_frequency, replica_scaling_used)
+VALUES
+('A', 97.00, 99.99, 30, 60, 70, NULL, NULL, 'Automated Monitoring', 0), -- 0 = FALSE
+
+('B', 96.50, 99.95, 45, 30, NULL, 35, NULL, 'Not specified', 0),
+
+('C', 95.00, 99.90, NULL, NULL, NULL, NULL, 85, 'Monthly Simulations', 1); -- 1 = TRUE
+
